@@ -11,9 +11,28 @@
                 </div>
 
                 <!-- Navigation Links -->
+                {{-- link for dashboard --}}
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
+                    </x-nav-link>
+                </div>
+                {{-- view all content --}}
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('allcontent')" :active="request()->routeIs('allcontent')">
+                        {{ __('all content') }}
+                    </x-nav-link>
+                </div>
+                {{-- view my content --}}
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('mycontent')" :active="request()->routeIs('mycontent')">
+                        {{ __('my content') }}
+                    </x-nav-link>
+                </div>
+                {{-- upload my content --}}
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('addcontent')" :active="request()->routeIs('addcontent')">
+                        {{ __('add content') }}
                     </x-nav-link>
                 </div>
             </div>

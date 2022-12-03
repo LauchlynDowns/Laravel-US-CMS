@@ -24,4 +24,29 @@ Route::get('/dashboard', function () {
     
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/mycontent', function () {
+    return view('dashboard', [
+        'contents' => content::all()
+    ]);
+})->middleware(['auth', 'verified'])->name('mycontent');
+
+Route::get('/allcontent', function () {
+    return view('dashboard', [
+        'contents' => content::all()
+    ]);
+})->middleware(['auth', 'verified'])->name('allcontent');
+
+Route::get('/addcontent', function () {
+    return view('addcontent', [
+        'contents' => content::all()
+    ]);
+})->middleware(['auth', 'verified'])->name('addcontent');
+
+Route::get('/mycontent', function () {
+    return view('mycontent', [
+        'contents' => content::all()
+    ]);
+})->middleware(['auth', 'verified'])->name('mycontent');
+
+
 require __DIR__.'/auth.php';
