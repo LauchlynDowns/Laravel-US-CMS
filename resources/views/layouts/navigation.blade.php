@@ -30,11 +30,11 @@
                     </x-nav-link>
                 </div>
                 {{-- upload my content --}}
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('addcontent')" :active="request()->routeIs('addcontent')">
                         {{ __('add content') }}
                     </x-nav-link>
-                </div>
+                </div> --}}
             </div>
 
             <!-- Settings Dropdown -->

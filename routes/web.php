@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\content;
+use App\Http\Controllers\NewContentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,11 +37,6 @@ Route::get('/allcontent', function () {
     ]);
 })->middleware(['auth', 'verified'])->name('allcontent');
 
-Route::get('/addcontent', function () {
-    return view('addcontent', [
-        'contents' => content::all()
-    ]);
-})->middleware(['auth', 'verified'])->name('addcontent');
 
 Route::get('/mycontent', function () {
     return view('mycontent', [
@@ -49,4 +45,6 @@ Route::get('/mycontent', function () {
 })->middleware(['auth', 'verified'])->name('mycontent');
 
 
+Route::get('addcontent', [NewContentController::class, 'create']);
+Route::post('submitcontent', [NewContentController::class, 'addnewcontent']);
 require __DIR__.'/auth.php';

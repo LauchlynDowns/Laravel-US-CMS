@@ -12,7 +12,7 @@
                    All Content
                     ID: {{$content->id}}<br>
                     Title:{{$content->contentTitle}}<br>
-                    UserId:{{$content->UserId}}<br>
+                    UserId:{{$content->userid}}<br>
                     Description:{{$content->contentDescription}}<br>
                     Content:{{$content->contentBody}}<br>
                     Date:{{$content->created_at}}
