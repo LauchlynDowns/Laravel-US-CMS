@@ -38,13 +38,15 @@ Route::get('/allcontent', function () {
 })->middleware(['auth', 'verified'])->name('allcontent');
 
 
+
 Route::get('/mycontent', function () {
     return view('mycontent', [
-        'contents' => content::all()
+        'contents' => content::all()->where('userid', Auth::user()->id)
     ]);
 })->middleware(['auth', 'verified'])->name('mycontent');
 
 
-Route::get('addcontent', [NewContentController::class, 'create']);
+Route::get('addcontent', [NewContentController::class, 'create'])->middleware(['auth', 'verified'])->name('addcontent');
 Route::post('submitcontent', [NewContentController::class, 'addnewcontent']);
+
 require __DIR__.'/auth.php';

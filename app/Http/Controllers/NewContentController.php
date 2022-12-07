@@ -20,7 +20,7 @@ class NewContentController extends Controller
        ]);
        
      content::create($attributes);
-   return redirect('/');
+   return redirect('/mycontent');
     }
 };
 

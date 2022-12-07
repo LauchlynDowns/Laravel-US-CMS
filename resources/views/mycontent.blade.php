@@ -8,13 +8,25 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                   This is where some mad content will be stored thats mine
-                  
+                    @foreach ($contents as $content)
+                        <div class="card" style="margin:2rem">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $content->contentTitle }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ $content->contentDescription }}</h6>
+                                <p class="card-text">{{ $content->contentBody }}</p>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ $content->created_at }}</h6>
+                                <button type="button" class="btn btn-primary">Edit</button> 
+                                <button type="button" class="btn btn-danger">Delete</button>
+
+                            </div>
+                        </div>
+                    @endforeach
+
                 </div>
-                
+
             </div>
         </div>
-        
+
     </div>
-  
+
 </x-app-layout>
