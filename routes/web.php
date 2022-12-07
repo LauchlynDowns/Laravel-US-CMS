@@ -25,18 +25,11 @@ Route::get('/dashboard', function () {
     
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/mycontent', function () {
-    return view('dashboard', [
-        'contents' => content::all()
-    ]);
-})->middleware(['auth', 'verified'])->name('mycontent');
-
 Route::get('/allcontent', function () {
     return view('dashboard', [
         'contents' => content::all()
     ]);
 })->middleware(['auth', 'verified'])->name('allcontent');
-
 
 
 Route::get('/mycontent', function () {
@@ -47,6 +40,8 @@ Route::get('/mycontent', function () {
 
 
 Route::get('addcontent', [NewContentController::class, 'create'])->middleware(['auth', 'verified'])->name('addcontent');
-Route::post('submitcontent', [NewContentController::class, 'addnewcontent'])->middleware(['auth', 'verified'])->name('addcontent');
+Route::post('submitcontent', [NewContentController::class, 'addnewcontent'])->middleware(['auth', 'verified'])->name('submitcontent');
 
+Route::get('delete', [NewContentController::class, 'deletecontent'])->middleware(['auth', 'verified'])->name('deletecontent');
+Route::post('deletecontent', [NewContentController::class, 'delete'])->middleware(['auth', 'verified'])->name('delete');
 require __DIR__.'/auth.php';
