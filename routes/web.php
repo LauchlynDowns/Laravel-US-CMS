@@ -47,6 +47,6 @@ Route::get('/mycontent', function () {
 
 
 Route::get('addcontent', [NewContentController::class, 'create'])->middleware(['auth', 'verified'])->name('addcontent');
-Route::post('submitcontent', [NewContentController::class, 'addnewcontent']);
+Route::post('submitcontent', [NewContentController::class, 'addnewcontent'])->middleware(['auth', 'verified'])->name('addcontent');
 
 require __DIR__.'/auth.php';
