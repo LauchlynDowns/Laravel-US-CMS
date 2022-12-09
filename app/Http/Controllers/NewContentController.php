@@ -47,19 +47,32 @@ class NewContentController extends Controller
 
   public function updatepage()
   {
-    // $ContentToEdit = request('id');
-    return view('newcontent.updatecontent', [
-      'contents' => content::all()->where('id', request('id'))
-    ]);
+    $currentuser = Auth::user()->id;
+    $tobedeleted = request('id');
+    $postauthorid = content::where('userid', $currentuser)->find($tobedeleted)->userid;
+   if($currentuser = $postauthorid){
+    return view('newcontent.updatecontent', ['contents' => content::all()->where('id', request('id'))]);
+   } else {
+    return view('/');
+   }
    
-
     //  return view('newcontent.updatecontent');
     
   }
 
   public function update(){
     // return view('newcontent.updatecontent');
-    return request();
+    // $h = request()->validate([
+    //   'userid' => 'required|max:255',
+    //   'contenttitle' => 'required|max:255',
+    //   'contentdescription' => 'required|max:255',
+    //   'contentbody' => 'required'
+    // ]);
+    //  return request();
+
+     content::where('id',request('id'))->update(['contentTitle'=>request('updatedccontenttitle')]);
+     return redirect('mycontent');
+
   }
 
 }

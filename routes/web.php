@@ -53,11 +53,9 @@ Route::post('deletecontent', [NewContentController::class, 'delete'])
 ->middleware(['auth', 'verified'])->name('delete');
 
 
-Route::post('updatecontent', [NewContentController::class, 'updatepage'
-])->middleware(['auth', 'verified'])->name('updatecontent');
+Route::post('updatecontent', [NewContentController::class, 'updatepage'])->middleware(['auth', 'verified'])->name('updatecontent');
 
- Route::post('update', [NewContentController::class, 'updatepage'
- ])->middleware(['auth', 'verified'])->name('update');
+Route::post('update', [NewContentController::class, 'update'])->middleware(['auth', 'verified'])->name('update');
 
 
 require __DIR__.'/auth.php';
