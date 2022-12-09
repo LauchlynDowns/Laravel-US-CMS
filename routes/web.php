@@ -39,9 +39,25 @@ Route::get('/mycontent', function () {
 })->middleware(['auth', 'verified'])->name('mycontent');
 
 
-Route::get('addcontent', [NewContentController::class, 'create'])->middleware(['auth', 'verified'])->name('addcontent');
-Route::post('submitcontent', [NewContentController::class, 'addnewcontent'])->middleware(['auth', 'verified'])->name('submitcontent');
+Route::get('addcontent', [NewContentController::class, 'create'
+])->middleware(['auth', 'verified'])->name('addcontent');
 
-Route::get('delete', [NewContentController::class, 'deletecontent'])->middleware(['auth', 'verified'])->name('deletecontent');
-Route::post('deletecontent', [NewContentController::class, 'delete'])->middleware(['auth', 'verified'])->name('delete');
+Route::post('submitcontent', [NewContentController::class, 'addnewcontent'])
+->middleware(['auth', 'verified'])->name('submitcontent');
+
+
+Route::get('delete', [NewContentController::class, 'deletecontent'])
+->middleware(['auth', 'verified'])->name('deletecontent');
+
+Route::post('deletecontent', [NewContentController::class, 'delete'])
+->middleware(['auth', 'verified'])->name('delete');
+
+
+Route::post('updatecontent', [NewContentController::class, 'updatepage'
+])->middleware(['auth', 'verified'])->name('updatecontent');
+
+ Route::post('update', [NewContentController::class, 'updatepage'
+ ])->middleware(['auth', 'verified'])->name('update');
+
+
 require __DIR__.'/auth.php';

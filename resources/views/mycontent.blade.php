@@ -15,7 +15,11 @@
                                 <h6 class="card-subtitle mb-2 text-muted">{{ $content->contentDescription }}</h6>
                                 <p class="card-text">{{ $content->contentBody }}</p>
                                 <h6 class="card-subtitle mb-2 text-muted">{{ $content->created_at }}</h6>
-                                <button type="button" class="btn btn-primary">Edit</button>
+                                <form style="display: inline;" action="/updatecontent" method="POST">@csrf<input
+                                        name="id" type="hidden" value="{{ $content->id }}"><input name="userid"
+                                        type="hidden" value="{{ $content->userid }}"><button type="submit"
+                                        class="btn btn-primary">Update</button>
+                                </form>
                                 <form style="display: inline;" action="/deletecontent" method="POST">@csrf<input
                                         name="id" type="hidden" value="{{ $content->id }}"><input name="userid"
                                         type="hidden" value="{{ $content->userid }}"><button type="submit"
