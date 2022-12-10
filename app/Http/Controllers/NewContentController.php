@@ -61,18 +61,17 @@ class NewContentController extends Controller
   }
 
   public function update(){
-    // return view('newcontent.updatecontent');
-    // $h = request()->validate([
-    //   'userid' => 'required|max:255',
-    //   'contenttitle' => 'required|max:255',
-    //   'contentdescription' => 'required|max:255',
-    //   'contentbody' => 'required'
-    // ]);
-    //  return request();
-
+    $currentuser = Auth::user()->id;
+    $tobedeleted = request('id');
+    $postauthorid = content::where('userid', $currentuser)->find($tobedeleted)->userid;
+    if($currentuser = $postauthorid){
      content::where('id',request('id'))->update(['contentTitle'=>request('updatedccontenttitle')]);
+     content::where('id',request('id'))->update(['contentdescription'=>request('updatedcontentdescription')]);
+     content::where('id',request('id'))->update(['contentbody'=>request('updatedcontentbody')]);
      return redirect('mycontent');
-
+    } else {
+      return view('/');
+     }
   }
 
 }
