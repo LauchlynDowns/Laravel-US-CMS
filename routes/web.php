@@ -77,6 +77,7 @@ Route::post('update', [NewContentController::class, 'update'])->middleware(['aut
 
 
 Route::get('adminpanel', [admincontroller::class, 'checkifadmin'])->middleware(['auth', 'verified'])->name('adminpanel');
+Route::post('banuser', [admincontroller::class, 'deleteuser'])->middleware(['auth', 'verified'])->name('deleteuser');
 
 
 require __DIR__.'/auth.php';

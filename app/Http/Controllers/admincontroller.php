@@ -9,9 +9,30 @@ class admincontroller extends Controller
 {
     public function checkifadmin()
   {
-   //i didnt get round to implementing this! so a view all users will have to do for now
-         return view('adminpanel',  ['activeusers' => User::all()]);
+    $adminstatus = Auth::user()->admin;
+   
+    // return($adminstatus);
+    // return $adminstatus;
+
+    if($adminstatus == "true"){
+        return view('adminpanel',  ['activeusers' => User::all()]);
+
+
+
+    } else if($adminstatus == "FALSE"){
+        return redirect('/dashboard');
+    } else {
+        return redirect('/dashboard');
+    }
    
    
+  }
+
+
+  public function deleteuser()
+  {
+    // return request();
+    User::where('id', request('userid'))->delete();
+    return redirect('/adminpanel');
   }
 }

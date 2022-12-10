@@ -34,8 +34,7 @@
                                     <td>{{ $user->admin }}</td>
                                     <td>
                                         <form style="display: inline;" action="/banuser" method="POST">@csrf<input
-                                                name="id" type="hidden" value=""><input
-                                                name="userid" type="hidden" value=""><button type="submit"
+                                                name="userid" type="hidden" value="{{$user->id}}"><button type="submit"
                                                 class="btn btn-danger"
                                                 onclick="return confirm('Are you sure to ban ? ')">Ban</button>
                                         </form>
