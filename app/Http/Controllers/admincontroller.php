@@ -10,15 +10,9 @@ class admincontroller extends Controller
     public function checkifadmin()
   {
     $adminstatus = Auth::user()->admin;
-   
-    // return($adminstatus);
-    // return $adminstatus;
 
     if($adminstatus == "true"){
         return view('adminpanel',  ['activeusers' => User::all()]);
-
-
-
     } else if($adminstatus == "FALSE"){
         return redirect('/dashboard');
     } else {
@@ -31,8 +25,16 @@ class admincontroller extends Controller
 
   public function deleteuser()
   {
+    $adminstatus = Auth::user()->admin;
+
+    if($adminstatus == "true"){
     // return request();
     User::where('id', request('userid'))->delete();
     return redirect('/adminpanel');
+    }else if($adminstatus == "FALSE"){
+      return redirect('/dashboard');
+  } else {
+      return redirect('/dashboard');
+  }
   }
 }

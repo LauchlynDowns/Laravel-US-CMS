@@ -62,17 +62,6 @@ Route::post('updatecontent', [NewContentController::class, 'updatepage'])->middl
 Route::post('update', [NewContentController::class, 'update'])->middleware(['auth', 'verified'])->name('update');
 
 
-//routes for admin panel
-// Route::get('/adminpanel', function () {
-//     $adminuser = User::First()->where('id', Auth::user()->id);
-//      return view('adminpanel', [
-//         'adminuser' => $adminuser,
-//          'activeusers' => User::all()
-
-//       ]);
-
-    
-// })->middleware(['auth', 'verified'])->name('adminpanel');
 
 
 
